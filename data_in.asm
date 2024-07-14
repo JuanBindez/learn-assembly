@@ -13,37 +13,27 @@ segment .data
 
 
 section .data
-    ; dd dw db dq dt
-    x dd 50
-    y dd 10
-    msg1 db "x é maior que y", LF, NULL
-    tam1 equ $- msg1
-    msg2 db "y é maior que x", LF, NULL
-    tam2 equ $- msg2
+    msg db "Entry with your name", LF, NULL
+    tam equ $- msg
+
+section .bss
+    nome resb 1
 
 section .text
 
 global _start
 
 _start:
-    ; je =, jg >, jge >=, jl <, jle <=, jne !=.
-    ; jmp go to -> unconditional jump
-    mov EAX, DWORD[x]
-    mov EBX, DWORD[y]
-    ; if comparison
-    cmp EAX, EBX
-    jge maior ; EAX >= EBX
-    mov ECX, msg2
-    mov EDX, tam2
-    jmp final
-
-maior:
-    mov ECX, msg1
-    mov EDX, tam1
-    
-final:
     mov EAX, SYS_WRITE
     mov EBX, STD_OUT
+    mov ECX, msg
+    mov EDX, tam 
+    int SYS_CALL
+
+    mov EAX, SYS_READ
+    mov EBX, STD_IN
+    mov ECX, nome
+    mov EDX, 0xA
     int SYS_CALL
 
     mov EAX, SYS_EXIT
