@@ -1,4 +1,4 @@
-SRC = main.asm
+SRC = testbiblioteca.asm
 
 OBJ = main.o
 
