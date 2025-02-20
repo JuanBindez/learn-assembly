@@ -1,2 +1,4 @@
 # learn-assembly
 learn
+
+https://www.tutorialspoint.com/assembly_programming/assembly_system_calls.htm
