@@ -1,6 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/estoque/Área de Trabalho/learn-assembly'
-nasm -f elf64 -o main.o main.asm
-ld -s -o exec-x86-64 main.o
-make: Leaving directory '/home/estoque/Área de Trabalho/learn-assembly'
- 
